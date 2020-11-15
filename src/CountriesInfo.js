@@ -5,14 +5,11 @@ const ListTmp = require("./template/list.handlebars");
 const cartTmp = require("./template/cart.handlebars");
 
 class CountriesInfo {
-  constructor(evt, container) {
+  constructor(container) {
     this.container = container;
-    this.searchCountries(evt);
   }
-
-  searchCountries(e) {
-    const name = e.target.value;
-    console.log(fetchCountries(name));
+  
+  searchCountries(name) {
     fetchCountries(name)
       .then(this.renderCountries.bind(this))
       .catch((err) => {
